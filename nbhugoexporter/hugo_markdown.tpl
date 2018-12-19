@@ -27,3 +27,7 @@
 {{ super() }}
 {{ '{{% jupyter_input_end %}}' }}
 {% endblock input %}
+
+{% block data_png %}
+{{ '{{< figure src="' }}{{ output.metadata.filenames["image/png"] | path2url }}{{'" >}}' }}
+{% endblock data_png %}
