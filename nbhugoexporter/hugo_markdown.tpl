@@ -17,9 +17,15 @@
 {% endblock header %}
 
 {%- block any_cell scoped -%}
+{%- if cell.cell_type == 'raw' -%}
+{{ '{{< rawhtml >}}' }}
+{{super()}}
+{{ '{{< /rawhtml >}}' }}
+{%- else -%}
 {{ '{{% jupyter_cell_start' }} {{ cell.cell_type }} {{ '%}}' }}
 {{ super() }}
 {{ '{{% jupyter_cell_end %}}' }}
+{%- endif -%}
 {%- endblock any_cell -%}
 
 {% block input %}
