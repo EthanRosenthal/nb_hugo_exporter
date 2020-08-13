@@ -130,7 +130,7 @@ class HugoPreprocessor(Preprocessor):
         title = ' '.join(_.capitalize() for _ in name.split('_'))
         hugo['title'] = hugo.get('title') or title
 
-        hugo['draft'] = hugo.get('draft') or True
+        hugo['draft'] = hugo.get('draft', True)
 
         # Process the cells
         for index, cell in enumerate(nb.cells):
