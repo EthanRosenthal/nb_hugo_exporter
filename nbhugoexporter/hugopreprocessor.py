@@ -131,6 +131,9 @@ class HugoPreprocessor(Preprocessor):
         hugo['title'] = hugo.get('title') or title
 
         hugo['draft'] = hugo.get('draft', True)
+        hugo['notebook'] = hugo.get('notebook', False)
+        hugo['hasMath'] = hugo.get('hasMath', False)
+        hugo['tags'] = hugo.get('tags', [])
 
         # Process the cells
         for index, cell in enumerate(nb.cells):
